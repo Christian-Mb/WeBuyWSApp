@@ -1,5 +1,6 @@
 package univ.tours.WeBuyWSApp.service;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 import javax.transaction.Transactional;
@@ -15,12 +16,55 @@ import univ.tours.WeBuyWSApp.entity.User;
 @Transactional
 public class UserAdminImplService implements IUserAdminService {
 	
+
 	@Autowired
 	UserJPARepository userRepo;
 	
 	@Autowired
 	AdminJPARepository adminRepo;
 
+	@Override
+	public User add(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<User> findAll() {
+		return userRepo.findAll();
+	}
+
+	@Override
+	public User find(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User update(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void delete(int id) {
+		userRepo.delete(id);
+		
+	}
+
+	@Override
+	public User findByEmail(String email) {
+		return userRepo.getByEmail(email);
+	}
+
+	@Override
+	public User getAdmin(String email) {
+		return userRepo.getAdmin(email);
+	}
+
+	
+	
+	/**
 	@Override
 	public void AddUser() {
 		// TODO Auto-generated method stub
@@ -32,5 +76,5 @@ public class UserAdminImplService implements IUserAdminService {
 		
 	}
 
-
+**/
 }

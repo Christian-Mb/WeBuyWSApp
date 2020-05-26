@@ -7,6 +7,7 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -15,8 +16,8 @@ import javax.persistence.OneToOne;
 public class User implements Serializable {
 
 	@Id
-	@GeneratedValue
-	private long user_id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long user_id;
 	private String username, mobileNumber, email, password, token;
 	private Timestamp createdAt;
 
