@@ -2,9 +2,11 @@ package univ.tours.WeBuyWSApp.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -16,7 +18,8 @@ public class StoreAddress implements Serializable {
 	private double Longitude, latitude;
 	private String department;
 
-	@OneToOne(mappedBy = "address")
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="store_id", referencedColumnName = "store_id")
 	private Store store;
 
 	/**

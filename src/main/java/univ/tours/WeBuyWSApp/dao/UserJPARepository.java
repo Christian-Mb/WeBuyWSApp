@@ -13,7 +13,7 @@ import univ.tours.WeBuyWSApp.entity.User;
 @RepositoryRestResource
 public interface UserJPARepository  extends JpaRepository<User, Long>{
 
-	@Query(value = "SELECT * FROM user", nativeQuery = true)
+	@Query(value = "SELECT * FROM user u WHERE u.user_id NOT IN (SELECT user_id FROM admin)", nativeQuery = true)
 	public List<User> findAll();
 	
 	@Query(value = "SELECT * FROM user WHERE id=?1", nativeQuery = true)
@@ -25,8 +25,16 @@ public interface UserJPARepository  extends JpaRepository<User, Long>{
 	@Query("SELECT u from User u WHERE u.email = ?1")
 	public User getByEmail(String email);
 	
+	@Query(value = "SELECT * FROM user u INNER JOIN admin a ON a.user_id = u.user_id", nativeQuery = true)
+	public List<User> findAllAdmin();
+	
 	@Modifying
 	@Query(value = "DELETE FROM user WHERE user_id = ?1", nativeQuery = true)
 	public void delete(int id);
+	
+	@Modifying
+	@Query(value ="INSERT INTO admin(user_id) VALUES(?1)", nativeQuery = true)
+	public void promote(int id);
+	
 	
 }

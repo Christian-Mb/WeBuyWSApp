@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -13,8 +14,8 @@ import javax.persistence.OneToOne;
 public class Admin implements Serializable {
 
 	@Id
-	@GeneratedValue
-	private long admin_id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long admin_id;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id", referencedColumnName = "user_id")
 	private User user;

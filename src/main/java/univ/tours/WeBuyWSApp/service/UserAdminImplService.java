@@ -1,6 +1,7 @@
 package univ.tours.WeBuyWSApp.service;
 
 import java.util.List;
+
 import java.util.stream.Stream;
 
 import javax.transaction.Transactional;
@@ -60,6 +61,17 @@ public class UserAdminImplService implements IUserAdminService {
 	@Override
 	public User getAdmin(String email) {
 		return userRepo.getAdmin(email);
+	}
+
+	@Override
+	public void promote(int id) {
+		userRepo.promote(id);
+		
+	}
+
+	@Override
+	public List<User> findAllAdmin() {
+		return userRepo.findAllAdmin();
 	}
 
 	

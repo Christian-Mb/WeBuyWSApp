@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import univ.tours.WeBuyWSApp.entity.User;
+import univ.tours.WeBuyWSApp.service.StoreImplService;
 import univ.tours.WeBuyWSApp.service.UserAdminImplService;
 
 @Controller
@@ -19,6 +20,9 @@ public class ApplicationController {
 
 	@Autowired
 	private UserAdminImplService UserAdminService;
+	
+	@Autowired
+	private StoreImplService StoreService;
 	
 	@RequestMapping("/login")
 	public String login() {
@@ -61,6 +65,19 @@ public class ApplicationController {
 		return "UserPage";
 	}
 	
+	@GetMapping("/Admins")
+	public String showAllAdmins(HttpServletRequest request) {
+		request.setAttribute("users", UserAdminService.findAllAdmin());
+		request.setAttribute("mode", "allAdmins");
+		return "UserPage";
+	}
+	
+	@GetMapping("/Stores")
+	public String showAllStores(HttpServletRequest request) {
+		request.setAttribute("stores", StoreService.findAllStore());
+		request.setAttribute("mode", "allStores");
+		return "UserPage";
+	}
 	@RequestMapping("/delete-user")
 	public String deleteUser(@RequestParam int id, HttpServletRequest request) {
 		System.out.println(id);
@@ -69,5 +86,14 @@ public class ApplicationController {
 		request.setAttribute("mode","allUsers");
 		return "UserPage";
 	}
+	
+	@RequestMapping("/promote-user")
+	public String promoteUser(@RequestParam int id, HttpServletRequest request) {
+		UserAdminService.promote(id);
+		request.setAttribute("users",UserAdminService.findAll());
+		request.setAttribute("mode","allUsers");
+		return "UserPage";
+	}
 
+	
 }

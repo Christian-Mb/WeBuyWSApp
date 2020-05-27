@@ -19,9 +19,8 @@ public class Store implements Serializable {
 	@GeneratedValue
 	long store_id;
 	String name, logo;
-
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "address_id", referencedColumnName = "address_id")
+	
+	@OneToOne(mappedBy = "store")
 	private StoreAddress address;
 	@OneToMany(mappedBy = "store", fetch = FetchType.LAZY)
 	private Collection<Deal> deals;
