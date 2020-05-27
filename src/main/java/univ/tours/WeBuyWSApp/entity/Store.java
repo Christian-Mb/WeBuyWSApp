@@ -17,7 +17,7 @@ public class Store implements Serializable {
 
 	@Id
 	@GeneratedValue
-	long store_id;
+	Long store_id;
 	String name, logo;
 	
 	@OneToOne(mappedBy = "store")
