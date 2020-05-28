@@ -2,19 +2,14 @@ package univ.tours.WeBuyWSApp.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
 public class StoreAddress implements Serializable {
 
 	@Id
-	@GeneratedValue
-	private long address_id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long address_id;
 	private double Longitude, latitude;
 	private String department;
 
@@ -25,14 +20,14 @@ public class StoreAddress implements Serializable {
 	/**
 	 * @return the address_id
 	 */
-	public long getAddress_id() {
+	public Long getAddress_id() {
 		return address_id;
 	}
 
 	/**
 	 * @param address_id the address_id to set
 	 */
-	public void setAddress_id(long address_id) {
+	public void setAddress_id(Long address_id) {
 		this.address_id = address_id;
 	}
 

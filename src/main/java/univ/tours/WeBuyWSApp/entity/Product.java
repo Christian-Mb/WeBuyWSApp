@@ -91,4 +91,7 @@ public class Product implements Serializable {
 		this.deals = deals;
 	}
 
+	public void setProduct_id(Long product_id) {
+		this.product_id = product_id;
+	}
 }

@@ -257,4 +257,32 @@ public class Deal implements Serializable {
 		this.comments = comments;
 	}
 
+	/**
+	 * @param deal_id
+	 */
+	public void setDeal_id(Long deal_id) {
+		this.deal_id = deal_id;
+	}
+
+	/**
+	 * @return
+	 */
+	public long getUserLike() {
+		return userLike;
+	}
+
+	/**
+	 * @param userLike
+	 */
+	public void setUserLike(long userLike) {
+		this.userLike = userLike;
+	}
+
+	public long getUserDislike() {
+		return userDislike;
+	}
+
+	public void setUserDislike(long userDislike) {
+		this.userDislike = userDislike;
+	}
 }
