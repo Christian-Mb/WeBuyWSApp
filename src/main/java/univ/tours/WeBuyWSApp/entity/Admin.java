@@ -48,4 +48,7 @@ public class Admin implements Serializable {
 		this.user = user;
 	}
 
+	public void setAdmin_id(Long admin_id) {
+		this.admin_id = admin_id;
+	}
 }

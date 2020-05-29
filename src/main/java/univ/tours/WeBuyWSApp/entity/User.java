@@ -2,6 +2,7 @@ package univ.tours.WeBuyWSApp.entity;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.Entity;
@@ -18,8 +19,9 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long user_id;
-	private String username, mobileNumber, email, password, token;
+	private String username, mobileNumber, email, password, token,avatar;
 	private Timestamp createdAt;
+
 
 	@OneToOne(mappedBy = "user")
 	private Admin admin;
@@ -218,4 +220,15 @@ public class User implements Serializable {
 		this.comments = comments;
 	}
 
+	public void setUser_id(Long user_id) {
+		this.user_id = user_id;
+	}
+
+	public String getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
 }

@@ -71,9 +71,8 @@ public class ParticipateToPurshase implements Serializable {
 	public void setPurshaseGroup(PurshaseGroup purshaseGroup) {
 		this.purshaseGroup = purshaseGroup;
 	}
-	
-	
-	
-	
 
+	public void setParticipate_id(Long participate_id) {
+		this.participate_id = participate_id;
+	}
 }

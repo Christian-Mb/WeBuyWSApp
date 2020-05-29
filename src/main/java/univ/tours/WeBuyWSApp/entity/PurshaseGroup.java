@@ -24,7 +24,9 @@ public class PurshaseGroup implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long groupe_id;
 	private int duration, article_quantity;
+	private int nbrs_users_wanted;
 	private Timestamp createdAt;
+	private String invitationCode;
 
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "deal_id")
@@ -154,4 +156,23 @@ public class PurshaseGroup implements Serializable {
 		this.comments = comments;
 	}
 
+	public void setGroupe_id(Long groupe_id) {
+		this.groupe_id = groupe_id;
+	}
+
+	public String getInvitationCode() {
+		return invitationCode;
+	}
+
+	public void setInvitationCode(String invitationCode) {
+		this.invitationCode = invitationCode;
+	}
+
+	public int getNbrs_users_wanted() {
+		return nbrs_users_wanted;
+	}
+
+	public void setNbrs_users_wanted(int nbrs_users_wanted) {
+		this.nbrs_users_wanted = nbrs_users_wanted;
+	}
 }

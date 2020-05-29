@@ -10,21 +10,18 @@ public class Store implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long store_id;
-	private String name, logo;
+	Long store_id;
+	String name, logo;
 	
 	@OneToOne(mappedBy = "store")
 	private StoreAddress address;
 	@OneToMany(mappedBy = "store", fetch = FetchType.LAZY)
 	private Collection<Deal> deals;
 
-	public Store(){
-
-	}
 	/**
 	 * @return the store_id
 	 */
-	public Long getStore_id() {
+	public long getStore_id() {
 		return store_id;
 	}
 
@@ -90,7 +87,8 @@ public class Store implements Serializable {
 	public void setDeals(Collection<Deal> deals) {
 		this.deals = deals;
 	}
-	
-	
 
+	public void setStore_id(Long store_id) {
+		this.store_id = store_id;
+	}
 }

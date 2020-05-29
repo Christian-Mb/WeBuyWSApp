@@ -27,7 +27,7 @@ public class StoreAddress implements Serializable {
 	/**
 	 * @param address_id the address_id to set
 	 */
-	public void setAddress_id(long address_id) {
+	public void setAddress_id(Long address_id) {
 		this.address_id = address_id;
 	}
 

@@ -71,11 +71,8 @@ public class Deal_published implements Serializable {
 	public void setDeal(Deal deal) {
 		this.deal = deal;
 	}
-	
-	
-	
-	
-	
-	
 
+	public void setPublished_id(Long published_id) {
+		this.published_id = published_id;
+	}
 }

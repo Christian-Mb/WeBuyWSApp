@@ -122,4 +122,7 @@ public class Comment implements Serializable {
 		this.purshaseGroup = purshaseGroup;
 	}
 
+	public void setComment_id(Long comment_id) {
+		this.comment_id = comment_id;
+	}
 }

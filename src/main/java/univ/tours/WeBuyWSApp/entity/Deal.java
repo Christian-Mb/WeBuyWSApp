@@ -24,7 +24,8 @@ public class Deal implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long deal_id;	
-	private double price, price_pomo, quantity_available, quantity_to_buy;
+	private double price, price_pomo;
+	private int quantity_available, quantity_to_buy;
 	private long userLike, userDislike;
 	private Timestamp createdAt, startedAt, endedAt;
 
@@ -92,28 +93,28 @@ public class Deal implements Serializable {
 	/**
 	 * @return the quantity_available
 	 */
-	public double getQuantity_available() {
+	public int getQuantity_available() {
 		return quantity_available;
 	}
 
 	/**
 	 * @param quantity_available the quantity_available to set
 	 */
-	public void setQuantity_available(double quantity_available) {
+	public void setQuantity_available(int quantity_available) {
 		this.quantity_available = quantity_available;
 	}
 
 	/**
 	 * @return the quantity_to_buy
 	 */
-	public double getQuantity_to_buy() {
+	public int getQuantity_to_buy() {
 		return quantity_to_buy;
 	}
 
 	/**
 	 * @param quantity_to_buy the quantity_to_buy to set
 	 */
-	public void setQuantity_to_buy(double quantity_to_buy) {
+	public void setQuantity_to_buy(int quantity_to_buy) {
 		this.quantity_to_buy = quantity_to_buy;
 	}
 
@@ -257,4 +258,32 @@ public class Deal implements Serializable {
 		this.comments = comments;
 	}
 
+	/**
+	 * @param deal_id
+	 */
+	public void setDeal_id(Long deal_id) {
+		this.deal_id = deal_id;
+	}
+
+	/**
+	 * @return
+	 */
+	public long getUserLike() {
+		return userLike;
+	}
+
+	/**
+	 * @param userLike
+	 */
+	public void setUserLike(long userLike) {
+		this.userLike = userLike;
+	}
+
+	public long getUserDislike() {
+		return userDislike;
+	}
+
+	public void setUserDislike(long userDislike) {
+		this.userDislike = userDislike;
+	}
 }
