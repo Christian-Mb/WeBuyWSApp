@@ -9,11 +9,14 @@ import univ.tours.WeBuyWSApp.entity.Deal;
 import java.util.List;
 
 @RepositoryRestResource
-public interface DealJPARepository extends JpaRepository<Deal, Long> {
+public interface DealJPARepository extends JpaRepository<Deal, Integer> {
 
     @Query(value = "SELECT * FROM deal", nativeQuery = true)
-    public List<Deal> getAllStores();
+    public List<Deal> getAllDeals();
 
     @Query(value= "SELECT * FROM deal WHERE store_id = ?1", nativeQuery = true)
     public List<Deal> getByStoreId(int id);
+
+    @Query(value = "SELECT MAX(deal_id) FROM deal", nativeQuery = true)
+    public Long getLastId();
 }

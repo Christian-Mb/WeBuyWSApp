@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 public class ParticipateToPurshase implements Serializable {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long participate_id;
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)

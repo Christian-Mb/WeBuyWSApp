@@ -22,8 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 public class Deal implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long deal_id;	
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long deal_id;
 	private double price, price_pomo;
 	private int quantity_available, quantity_to_buy;
 	private long userLike, userDislike;
@@ -51,14 +51,14 @@ public class Deal implements Serializable {
 	/**
 	 * @return the deal_id
 	 */
-	public long getDeal_id() {
+	public Long getDeal_id() {
 		return deal_id;
 	}
 
 	/**
 	 * @param deal_id the deal_id to set
 	 */
-	public void setDeal_id(long deal_id) {
+	public void setDeal_id(Long deal_id) {
 		this.deal_id = deal_id;
 	}
 
@@ -258,12 +258,6 @@ public class Deal implements Serializable {
 		this.comments = comments;
 	}
 
-	/**
-	 * @param deal_id
-	 */
-	public void setDeal_id(Long deal_id) {
-		this.deal_id = deal_id;
-	}
 
 	/**
 	 * @return

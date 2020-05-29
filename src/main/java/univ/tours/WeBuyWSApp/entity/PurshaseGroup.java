@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 public class PurshaseGroup implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long groupe_id;
 	private int duration, article_quantity;
 	private int nbrs_users_wanted;
