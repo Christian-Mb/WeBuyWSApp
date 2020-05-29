@@ -14,7 +14,7 @@ import univ.tours.WeBuyWSApp.entity.User;
 
 @RestController
 @RequestMapping("/users")
-public class UserAdminController {
+public class UserAdminRestController {
 	
 	
 	@Autowired
@@ -24,7 +24,7 @@ public class UserAdminController {
 	/**
 	 * 
 	 */
-	public UserAdminController() {
+	public UserAdminRestController() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -35,15 +35,13 @@ public class UserAdminController {
 	}
 	
 	
-	@GetMapping("/AllUser")
+	@GetMapping("/AllUsers")
 	public List<User> getAllUser(){
 		return userRepo.findAll();
 	}
 	
 	@GetMapping("/get/{email}")
 	public User getUserByMail(@PathVariable(value="email") String email) {
-		System.out.println(email);
-		System.out.println(userRepo.getByEmail(email));
 		return userRepo.getByEmail(email);
 	}
 	

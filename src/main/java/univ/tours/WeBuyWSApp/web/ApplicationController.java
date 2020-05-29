@@ -15,6 +15,7 @@ import univ.tours.WeBuyWSApp.service.StoreAddressImplService;
 import univ.tours.WeBuyWSApp.service.StoreImplService;
 import univ.tours.WeBuyWSApp.service.UserAdminImplService;
 
+
 @Controller
 public class ApplicationController {
 
@@ -111,6 +112,7 @@ public class ApplicationController {
 		request.setAttribute("mode","allUsers");
 		return "UserPage";
 	}
+
 
 	@RequestMapping("/StoreAddress")
 	public String storeAddress(@RequestParam int id, HttpServletRequest request){
