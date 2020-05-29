@@ -9,7 +9,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import univ.tours.WeBuyWSApp.entity.Store;
-import univ.tours.WeBuyWSApp.entity.StoreAddress;
 import univ.tours.WeBuyWSApp.entity.User;
 import univ.tours.WeBuyWSApp.service.StoreAddressImplService;
 import univ.tours.WeBuyWSApp.service.StoreImplService;
@@ -41,7 +40,7 @@ public class ApplicationController {
 	@RequestMapping("/isAdmin")
 	public String checkIsAdmin(@ModelAttribute User user, BindingResult bindingResult, HttpServletRequest request, ModelMap model) {
 		System.out.println(user.getEmail());
-		User u = new User();
+		User u;
 		String errorMessage="";
 		try{
 			u = UserAdminService.getAdmin(user.getEmail());

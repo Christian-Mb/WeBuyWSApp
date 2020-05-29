@@ -91,8 +91,8 @@
 								<th>Id</th>
 								<th>Email</th>
 								<th>Username</th>
-								<th>Num�ro</th>
-								<th>Cr��e le</th>
+								<th>Numero</th>
+								<th>Cree le</th>
 								<th>R�trograder</th>
 								<th>Delete</th>
 							</tr>

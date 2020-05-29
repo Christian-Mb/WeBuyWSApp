@@ -2,6 +2,7 @@ package univ.tours.WeBuyWSApp.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import univ.tours.WeBuyWSApp.dao.DealJPARepository;
@@ -23,7 +24,7 @@ public class DealRestController {
     }
 
     @GetMapping("/get/{store_id}")
-    public List<Deal> getDealByMagazin(@PathParam(value="store_id") Integer store_id){
+    public List<Deal> getDealByMagazin(@PathVariable(value="store_id") int store_id){
         return dealRepo.getByStoreId(store_id);
     }
 }
