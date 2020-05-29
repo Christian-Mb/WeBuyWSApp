@@ -1,5 +1,6 @@
 <!DOCTYPE html >
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
 <meta charset="utf-8">
@@ -11,6 +12,7 @@
 <link href="static/css/bootstrap.min.css" rel="stylesheet">
 <link href="static/css/style.css" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 
 </head>
@@ -52,8 +54,8 @@
 								<th>Id</th>
 								<th>Email</th>
 								<th>Username</th>
-								<th>Numéro</th>
-								<th>Créée le</th>
+								<th>Numï¿½ro</th>
+								<th>Crï¿½ï¿½e le</th>
 								<th>Promouvoir</th>
 								<th>Delete</th>
 							</tr>
@@ -89,9 +91,9 @@
 								<th>Id</th>
 								<th>Email</th>
 								<th>Username</th>
-								<th>Numéro</th>
-								<th>Créée le</th>
-								<th>Rétrograder</th>
+								<th>Numï¿½ro</th>
+								<th>Crï¿½ï¿½e le</th>
+								<th>Rï¿½trograder</th>
 								<th>Delete</th>
 							</tr>
 						</thead>
@@ -116,8 +118,10 @@
 			</c:when>
 			
 			<c:when test="${mode == 'allStores' }">
-			<div class="container text-center" id="tasksDiv">
+
+				<div class="container text-center" id="tasksDiv">
 				<br>
+					<button class="btn btn-primary" data-target="#modal" data-toggle="modal" style="float: left;font-size: 16px;left:50px;position: relative">Ajouter</button>
 				<h3>Magazins</h3>
 				<hr>
 					<table id="table" class="table table-striped table-bordered">
@@ -126,9 +130,6 @@
 								<th>Id</th>
 								<th>Logo</th>
 								<th>Name</th>
-								<th>longitude</th>
-								<th>latitude</th>
-								<th>departement</th>
 								<th>Delete</th>
 							</tr>
 						</thead>
@@ -136,24 +137,91 @@
 							<c:forEach var="store" items="${stores }">
 								<tr>
 									<td>${store.store_id}</td>
-									<td>${store.store_logo}</td>
-									<td>${store.store_name}</td>
-									<td>${store.longitude}</td>
-									<td>${store.latitude}</td>
-									<td>${store.department }</td>
-									<td><a href="/delete-user?id=${user.user_id}"><span
+									<td>${store.logo}</td>
+									<td><a href="/StoreAddress?id=${store.store_id}">${store.name}</a></td>
+									<td><a href="/delete-store?id=${store.store_id}"><span
 										class="glyphicon glyphicon-trash"></span></a></td>
-								
 								</tr>
 							</c:forEach>
 						</tbody>
 					</table>
 				</div>
+				<div class="modal" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+					 aria-hidden="true">
+					<div class="modal-dialog" role="document" >
+						<div class="modal-content">
+							<div class="modal-header text-center">
+								<h4 class="modal-title w-100 font-weight-bold">Ajouter</h4>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body mx-3" >
+								<form class="form-horizontal" method="POST" action="addStore">
+									<div class="form-group">
+										<label class="control-label col-md-3">Nom</label>
+										<div >
+											<input type="text" name="name" value="${store.name }"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-3">Logo</label>
+										<div>
+											<input type="logo" name="logo" value="${store.logo }"/>
+										</div>
+									</div>
+
+							</div>
+							<div class="modal-footer d-flex justify-content-center">
+								<div class="form-group">
+									<input type="submit" class="btn btn-primary" value="Register"/>
+								</div>
+							</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</c:when>
+			<c:when test="${mode == 'allStoreAddress' }">
+
+				<div class="container text-center" id="tasksDiv">
+					<br>
+					<button type="button" class="btn btn-primary" style="float: left;font-size: 16px;left:50px;position: relative">Ajouter</button>
+					<h3>Addresses de ${magazin}</h3>
+					<hr>
+					<table id="table" class="table table-striped table-bordered">
+						<thead>
+						<tr>
+							<th>Id</th>
+							<th>Longitude</th>
+							<th>Latitude</th>
+							<th>Departement</th>
+							<th>Supprimer</th>
+						</tr>
+						</thead>
+						<tbody>
+						<c:forEach var="store" items="${allStoreAddress }">
+							<tr>
+								<td>${store.address_id}</td>
+								<td>${store.longitude}</td>
+								<td>${store.latitude}</td>
+								<td>${store.department}</td>
+								<td><a href="/delete-storeAddress?id=${store.address_id}&store_id=${store.store.store_id}"><span
+										class="glyphicon glyphicon-trash"></span></a></td>
+							</tr>
+						</c:forEach>
+						</tbody>
+					</table>
+				</div>
 			</c:when>
 		</c:choose>
+
 	</body>
-	
-	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
 	<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 	<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 	<script type="text/javascript">

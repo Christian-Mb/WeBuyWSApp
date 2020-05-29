@@ -3,32 +3,28 @@ package univ.tours.WeBuyWSApp.entity;
 import java.io.Serializable;
 import java.util.Collection;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
 public class Store implements Serializable {
 
 	@Id
-	@GeneratedValue
-	Long store_id;
-	String name, logo;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long store_id;
+	private String name, logo;
 	
 	@OneToOne(mappedBy = "store")
 	private StoreAddress address;
 	@OneToMany(mappedBy = "store", fetch = FetchType.LAZY)
 	private Collection<Deal> deals;
 
+	public Store(){
+
+	}
 	/**
 	 * @return the store_id
 	 */
-	public long getStore_id() {
+	public Long getStore_id() {
 		return store_id;
 	}
 

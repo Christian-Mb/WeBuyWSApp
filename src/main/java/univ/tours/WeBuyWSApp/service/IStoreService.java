@@ -7,4 +7,6 @@ import univ.tours.WeBuyWSApp.entity.Store;
 public interface IStoreService {
 
 	public List<Store> findAllStore();
+	public void delete(int id);
+	public void add(Store store);
 }
