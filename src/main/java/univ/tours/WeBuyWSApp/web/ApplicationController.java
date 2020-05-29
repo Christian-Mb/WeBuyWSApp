@@ -6,14 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+import univ.tours.WeBuyWSApp.entity.Store;
+import univ.tours.WeBuyWSApp.entity.StoreAddress;
 import univ.tours.WeBuyWSApp.entity.User;
+import univ.tours.WeBuyWSApp.service.StoreAddressImplService;
 import univ.tours.WeBuyWSApp.service.StoreImplService;
 import univ.tours.WeBuyWSApp.service.UserAdminImplService;
+
 
 @Controller
 public class ApplicationController {
@@ -23,7 +24,10 @@ public class ApplicationController {
 	
 	@Autowired
 	private StoreImplService StoreService;
-	
+
+	@Autowired
+	private StoreAddressImplService StoreAddressService;
+
 	@RequestMapping("/login")
 	public String login() {
 		return "Login";
@@ -57,6 +61,14 @@ public class ApplicationController {
 		}
 		
 	}
+
+	@PostMapping("/addStore")
+	public String addStore(@ModelAttribute Store store, BindingResult bindingResult, HttpServletRequest request){
+		StoreService.add(store);
+		request.setAttribute("stores", StoreService.findAllStore());
+		request.setAttribute("mode", "allStores");
+		return "UserPage";
+	}
 	
 	@GetMapping("/Users")
 	public String showAllUsers(HttpServletRequest request) {
@@ -80,13 +92,19 @@ public class ApplicationController {
 	}
 	@RequestMapping("/delete-user")
 	public String deleteUser(@RequestParam int id, HttpServletRequest request) {
-		System.out.println(id);
 		UserAdminService.delete(id);
 		request.setAttribute("users",UserAdminService.findAll());
 		request.setAttribute("mode","allUsers");
 		return "UserPage";
 	}
-	
+
+	@RequestMapping("delete-store")
+	public String deleteStore(@RequestParam int id, HttpServletRequest request){
+		StoreService.delete(id);
+		request.setAttribute("stores", StoreService.findAllStore());
+		request.setAttribute("mode", "allStores");
+		return "UserPage";
+	}
 	@RequestMapping("/promote-user")
 	public String promoteUser(@RequestParam int id, HttpServletRequest request) {
 		UserAdminService.promote(id);
@@ -95,5 +113,29 @@ public class ApplicationController {
 		return "UserPage";
 	}
 
-	
+
+	@RequestMapping("/StoreAddress")
+	public String storeAddress(@RequestParam int id, HttpServletRequest request){
+		request.setAttribute("allStoreAddress", StoreAddressService.storeAddress(id));
+		request.setAttribute("magazin", StoreAddressService.storeAddress(id).get(0).getStore().getName());
+		request.setAttribute("mode", "allStoreAddress");
+		return "UserPage";
+	}
+
+	@RequestMapping("/delete-storeAddress")
+	public String deleteStoreAddress(@RequestParam int id, @RequestParam int store_id, HttpServletRequest request){
+		request.setAttribute("magazin", StoreAddressService.storeAddress(id).get(0).getStore().getName());
+		StoreAddressService.delete(id);
+		request.setAttribute("allStoreAddress", StoreAddressService.storeAddress(store_id));
+		request.setAttribute("mode", "allStoreAddress");
+		return "UserPage";
+	}
+
+	@RequestMapping("/add-Magazin-form")
+	public String addMagazin(HttpServletRequest request){
+		request.setAttribute("stores", StoreService.findAllStore());
+		request.setAttribute("mode", "allStores");
+		request.setAttribute("form", "MagazinForm");
+		return "UserPage";
+	}
 }

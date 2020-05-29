@@ -16,10 +16,21 @@ public class StoreImplService implements IStoreService{
 
 	@Autowired
 	StoreJPARepository StoreService;
+
 	@Override
 	public List<Store> findAllStore() {
 		return StoreService.findAllStore(); 
 	}
 
-	
+	@Override
+	public void delete(int id) {
+		StoreService.delete(id);
+	}
+
+	@Override
+	public void add(Store store) {
+		StoreService.save(store);
+	}
+
+
 }
