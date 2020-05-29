@@ -11,6 +11,6 @@ import java.util.List;
 @RepositoryRestResource
 public interface PurshaseGroupJPARepository extends JpaRepository<PurshaseGroup, Long> {
 
-    @Query(value = "SELECT * FROM PurshaseGroup WHERE deal_id = ?1")
+    @Query(value = "SELECT * FROM PurshaseGroup WHERE deal_id = ?1", nativeQuery = true)
     public List<PurshaseGroup> getByDealId(int id);
 }

@@ -9,9 +9,9 @@ import javax.persistence.*;
 public class Store implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long store_id;
-	String name, logo;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long store_id;
+	private String name, logo;
 	
 	@OneToOne(mappedBy = "store")
 	private StoreAddress address;
