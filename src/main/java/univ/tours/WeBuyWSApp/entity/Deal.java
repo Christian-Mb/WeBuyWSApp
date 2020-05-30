@@ -29,7 +29,7 @@ public class Deal implements Serializable {
 	private long userLike, userDislike;
 	private Timestamp createdAt, startedAt, endedAt;
 
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "store_id")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private Store store;
@@ -40,7 +40,7 @@ public class Deal implements Serializable {
 	@OneToMany(mappedBy = "deal", fetch = FetchType.LAZY)
 	private Collection<PurshaseGroup> purshaseGroup;
 
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "product_id")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private Product product;

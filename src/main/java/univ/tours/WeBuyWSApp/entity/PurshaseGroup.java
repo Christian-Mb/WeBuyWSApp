@@ -28,12 +28,12 @@ public class PurshaseGroup implements Serializable {
 	private Timestamp createdAt;
 	private String invitationCode;
 
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "deal_id")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private Deal deal;
 
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "user_id")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private User user;

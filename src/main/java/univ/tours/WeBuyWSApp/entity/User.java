@@ -219,4 +219,8 @@ public class User implements Serializable {
 	public void setAvatar(String avatar) {
 		this.avatar = avatar;
 	}
+
+	public Long getUser_id() {
+		return user_id;
+	}
 }
