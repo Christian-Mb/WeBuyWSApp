@@ -344,10 +344,12 @@ public class InitDatas {
         u1.setEmail("google@sfr.fr");
         u1.setMobileNumber("je suisd ans la joie");
         u1.setPassword("123");
+
         u2.setCreatedAt(new Timestamp(System.currentTimeMillis()));
         u2.setEmail("user@sfr.fr");
         u2.setMobileNumber("je suisd ans la joie");
         u2.setPassword("abc");
+
         u3.setCreatedAt(new Timestamp(System.currentTimeMillis()));
         u3.setEmail("ahah@tv.fr");
         u3.setMobileNumber("je suisd ans la joie");

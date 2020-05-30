@@ -69,12 +69,12 @@ public class InitWebuyImpl implements InitWebuy {
 
     @Override
     public void initAdmin() {
-        for(User u: datas.getUsers()){
+        User u= datas.getUsers().get(0);
             Admin a = new Admin();
             a.setUser(u);
             adminJPARepository.save(a);
         }
-    }
+
 
     @Override
     public void afficher() {
