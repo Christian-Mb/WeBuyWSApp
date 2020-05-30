@@ -3,10 +3,8 @@ package univ.tours.WeBuyWSApp.web;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import univ.tours.WeBuyWSApp.dao.AdminJPARepository;
 import univ.tours.WeBuyWSApp.dao.UserJPARepository;
@@ -29,8 +27,9 @@ public class UserAdminRestController {
 		// TODO Auto-generated constructor stub
 	}
 	
-	@GetMapping("/add")
-	public void addUser(User user) {
+	@PostMapping("/add")
+	@ResponseStatus(value = HttpStatus.CREATED)
+	public void addUser(@RequestBody User user) {
 		userRepo.save(user);
 	}
 	
