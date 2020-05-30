@@ -24,11 +24,16 @@ public class InitWebuyImpl implements InitWebuy {
     DealJPARepository dealJPARepository;
     @Autowired
     AdminJPARepository adminJPARepository;
+    @Autowired
+    StoreAddressJPARepository storeAddressJPARepository;
 
     @Override
     public void initStore() {
         for(Store store: datas.getMagasinsList()){
             storeJPARepository.save(store);
+        }
+        for (StoreAddress s: datas.getAllStoreAddress()){
+            storeAddressJPARepository.save(s);
         }
     }
 

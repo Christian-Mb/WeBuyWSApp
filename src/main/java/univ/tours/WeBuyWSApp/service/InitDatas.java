@@ -11,7 +11,8 @@ public class InitDatas {
     ArrayList<Deal> deal = new ArrayList<>();
     ArrayList<Product> produt = new ArrayList<>();
     ArrayList<PurshaseGroup> groupes = new ArrayList<>();
-    ArrayList<User> users = new ArrayList<User>();
+    ArrayList<User> users = new ArrayList<>();
+    ArrayList<StoreAddress> storeAddresses = new ArrayList<>();
 
     //User
     User u1 = new User();
@@ -21,6 +22,16 @@ public class InitDatas {
     User u5 = new User();
     User u6 = new User();
     User u7 = new User();
+
+    //Address
+    StoreAddress a1 = new StoreAddress();
+    StoreAddress a7 = new StoreAddress();
+    StoreAddress a2 = new StoreAddress();
+    StoreAddress a3 = new StoreAddress();
+    StoreAddress a4 = new StoreAddress();
+    StoreAddress a5 = new StoreAddress();
+    StoreAddress a6 = new StoreAddress();
+
 
 
     // Stores
@@ -362,6 +373,52 @@ public class InitDatas {
 
         return users;
 
+    }
+
+    public ArrayList<StoreAddress> getAllStoreAddress(){
+
+        a1.setDepartment("37010");
+        a2.setDepartment("37000");
+        a3.setDepartment("37100");
+        a4.setDepartment("37300");
+        a5.setDepartment("37200");
+        a6.setDepartment("37000");
+        a7.setDepartment("37150");
+
+        a1.setLongitude(47.336979);
+        a2.setLongitude(47.336979);
+        a3.setLongitude(47.336979);
+        a4.setLongitude(47.336979);
+        a5.setLongitude(47.336979);
+        a6.setLongitude(47.336979);
+        a7.setLongitude(47.336979);
+
+        a1.setLatitude(0.700475);
+        a2.setLatitude(0.700475);
+        a3.setLatitude(0.700475);
+        a4.setLatitude(0.700475);
+        a5.setLatitude(0.700475);
+        a6.setLatitude(0.700475);
+        a7.setLatitude(0.700475);
+
+        a1.setStore(s1);
+        a2.setStore(s2);
+        a3.setStore(s3);
+        a4.setStore(s4);
+        a5.setStore(s5);
+        a6.setStore(s6);
+        a7.setStore(s7);
+
+
+        storeAddresses.add(a1);
+        storeAddresses.add(a2);
+        storeAddresses.add(a3);
+        storeAddresses.add(a4);
+        storeAddresses.add(a5);
+        storeAddresses.add(a6);
+        storeAddresses.add(a7);
+
+       return storeAddresses;
     }
 
 }
