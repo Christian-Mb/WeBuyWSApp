@@ -21,19 +21,6 @@ public class Product implements Serializable {
 	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
 	private Collection<Deal> deals;
 
-	/**
-	 * @return the product_id
-	 */
-	public long getProduct_id() {
-		return product_id;
-	}
-
-	/**
-	 * @param product_id the product_id to set
-	 */
-	public void setProduct_id(long product_id) {
-		this.product_id = product_id;
-	}
 
 	/**
 	 * @return the label

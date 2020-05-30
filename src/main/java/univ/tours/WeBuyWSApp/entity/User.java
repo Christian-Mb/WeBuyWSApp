@@ -38,19 +38,7 @@ public class User implements Serializable {
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	private Collection<Comment> comments;
 
-	/**
-	 * @return the user_id
-	 */
-	public long getUser_id() {
-		return user_id;
-	}
 
-	/**
-	 * @param user_id the user_id to set
-	 */
-	public void setUser_id(long user_id) {
-		this.user_id = user_id;
-	}
 
 	/**
 	 * @return the username

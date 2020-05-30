@@ -19,20 +19,6 @@ public class Store implements Serializable {
 	private Collection<Deal> deals;
 
 	/**
-	 * @return the store_id
-	 */
-	public long getStore_id() {
-		return store_id;
-	}
-
-	/**
-	 * @param store_id the store_id to set
-	 */
-	public void setStore_id(long store_id) {
-		this.store_id = store_id;
-	}
-
-	/**
 	 * @return the name
 	 */
 	public String getName() {
@@ -91,6 +77,7 @@ public class Store implements Serializable {
 	public void setStore_id(Long store_id) {
 		this.store_id = store_id;
 	}
+
 
 
 }

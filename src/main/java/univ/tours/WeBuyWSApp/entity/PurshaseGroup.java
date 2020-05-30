@@ -44,19 +44,6 @@ public class PurshaseGroup implements Serializable {
 	@OneToMany(mappedBy = "purshaseGroup", fetch = FetchType.LAZY)
 	private Collection<Comment> comments;
 
-	/**
-	 * @return the groupe_id
-	 */
-	public long getGroupe_id() {
-		return groupe_id;
-	}
-
-	/**
-	 * @param groupe_id the groupe_id to set
-	 */
-	public void setGroupe_id(long groupe_id) {
-		this.groupe_id = groupe_id;
-	}
 
 	/**
 	 * @return the duration

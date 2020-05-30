@@ -118,33 +118,6 @@ public class Deal implements Serializable {
 		this.quantity_to_buy = quantity_to_buy;
 	}
 
-	/**
-	 * @return the like
-	 */
-	public long getLike() {
-		return userLike;
-	}
-
-	/**
-	 * @param like the like to set
-	 */
-	public void setLike(long like) {
-		this.userLike = like;
-	}
-
-	/**
-	 * @return the dislike
-	 */
-	public long getDislike() {
-		return userDislike;
-	}
-
-	/**
-	 * @param dislike the dislike to set
-	 */
-	public void setDislike(long dislike) {
-		this.userDislike = dislike;
-	}
 
 	/**
 	 * @return the createdAt
