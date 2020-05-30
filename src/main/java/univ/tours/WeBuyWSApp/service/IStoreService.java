@@ -9,4 +9,5 @@ public interface IStoreService {
 	public List<Store> findAllStore();
 	public void delete(int id);
 	public void add(Store store);
+	public Store getById(int id);
 }

@@ -341,17 +341,17 @@ public class InitDatas {
 
 
         u1.setCreatedAt(new Timestamp(System.currentTimeMillis()));
-        u1.setEmail("c'est de la merde");
+        u1.setEmail("google@sfr.fr");
         u1.setMobileNumber("je suisd ans la joie");
-        u1.setPassword("Chris");
+        u1.setPassword("123");
         u2.setCreatedAt(new Timestamp(System.currentTimeMillis()));
-        u2.setEmail("c'est de la merde");
+        u2.setEmail("user@sfr.fr");
         u2.setMobileNumber("je suisd ans la joie");
-        u2.setPassword("Christian");
+        u2.setPassword("abc");
         u3.setCreatedAt(new Timestamp(System.currentTimeMillis()));
-        u3.setEmail("c'est de la merde");
+        u3.setEmail("ahah@tv.fr");
         u3.setMobileNumber("je suisd ans la joie");
-        u3.setPassword("Christ");
+        u3.setPassword("zzz");
 
         users.add(u1);
         users.add(u2);

@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 public class Admin implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long admin_id;
 	@OneToOne(cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "user_id", referencedColumnName = "user_id")

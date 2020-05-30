@@ -8,4 +8,5 @@ public interface InitWebuy {
     public void  initParticipateToPurshase();
     public void initUser();
     public void initAdmin();
+    public void afficher();
 }

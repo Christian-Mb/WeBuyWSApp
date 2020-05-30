@@ -32,5 +32,10 @@ public class StoreImplService implements IStoreService{
 		StoreService.save(store);
 	}
 
+	@Override
+	public Store getById(int id) {
+		return StoreService.getById(id);
+	}
+
 
 }

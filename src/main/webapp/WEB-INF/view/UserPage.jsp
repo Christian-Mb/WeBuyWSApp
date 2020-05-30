@@ -54,8 +54,8 @@
 								<th>Id</th>
 								<th>Email</th>
 								<th>Username</th>
-								<th>Num�ro</th>
-								<th>Cr��e le</th>
+								<th>Numero</th>
+								<th>Creee le</th>
 								<th>Promouvoir</th>
 								<th>Delete</th>
 							</tr>
@@ -63,7 +63,7 @@
 						<tbody>
 							<c:forEach var="user" items="${users }">
 								<tr>
-									<td>${user.user_id}</td>
+									<td>${user.getUser_id()}</td>
 									<td>${user.email}</td>
 									<td>${user.username}</td>
 									<td>${user.mobileNumber}</td>
@@ -93,7 +93,7 @@
 								<th>Username</th>
 								<th>Numero</th>
 								<th>Cree le</th>
-								<th>R�trograder</th>
+								<th>Retrograder</th>
 								<th>Delete</th>
 							</tr>
 						</thead>
@@ -105,7 +105,7 @@
 									<td>${user.username}</td>
 									<td>${user.mobileNumber}</td>
 									<td>${user.createdAt}</td>
-									<td><a href="/promote-user?id=${user.user_id}"><span
+									<td><a href="/retrograde-admin?id=${user.user_id}"><span
 										 class="glyphicon glyphicon-minus"></span></a></td>
 									<td><a href="/delete-user?id=${user.user_id}"><span
 										class="glyphicon glyphicon-trash"></span></a></td>
@@ -136,8 +136,8 @@
 						<tbody>
 							<c:forEach var="store" items="${stores }">
 								<tr>
-									<td>${store.store_id}</td>
-									<td>${store.logo}</td>
+									<td>${store.getStore_id()}</td>
+									<td><img src="${store.logo}" width="75px" height="75"></td>
 									<td><a href="/StoreAddress?id=${store.store_id}">${store.name}</a></td>
 									<td><a href="/delete-store?id=${store.store_id}"><span
 										class="glyphicon glyphicon-trash"></span></a></td>
@@ -187,7 +187,7 @@
 				<div class="container text-center" id="tasksDiv">
 					<br>
 					<button type="button" class="btn btn-primary" style="float: left;font-size: 16px;left:50px;position: relative">Ajouter</button>
-					<h3>Addresses de ${magazin}</h3>
+					<h3>Addresses de ${magazin.name}</h3>
 					<hr>
 					<table id="table" class="table table-striped table-bordered">
 						<thead>

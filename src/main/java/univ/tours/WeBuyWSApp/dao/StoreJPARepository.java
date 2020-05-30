@@ -19,4 +19,6 @@ public interface StoreJPARepository extends JpaRepository<Store, Long> {
 	@Query(value = "DELETE FROM Store WHERE store_id =?1", nativeQuery = true)
 	public void delete(int id);
 
+	@Query(value = "SELECT * from Store WHERE store_id=?1", nativeQuery = true)
+	public Store getById(int id);
 }

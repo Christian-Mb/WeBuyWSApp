@@ -18,6 +18,10 @@ public class Store implements Serializable {
 	@OneToMany(mappedBy = "store", fetch = FetchType.LAZY)
 	private Collection<Deal> deals;
 
+	public Long getStore_id() {
+		return store_id;
+	}
+
 	/**
 	 * @return the name
 	 */
