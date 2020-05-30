@@ -19,11 +19,11 @@ public class StoreRestController {
     @GetMapping("/AllStores")
     public List<Store> getAllStores(){
         Store store = new Store();
-        store.setStore_id(1);
+        store.setStore_id((long) 1);
         store.setLogo("https://lesmureaux.info/wp-content/uploads/cache/images/2020/05/Auchan-Les-Mureaux/Auchan-Les-Mureaux-1426267381.jpg");
         store.setName("Auchan");
         storeRepo.save(store);
-        store.setStore_id(2);
+        store.setStore_id((long) 2);
         store.setLogo("https://www.carrefour.fr/images/meta-social-default-image-generic.png");
         store.setName("Carrefour");
         storeRepo.save(store);

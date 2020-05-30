@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 public class Comment implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long comment_id;
 	private String content;
 	private Timestamp PublishedAt;

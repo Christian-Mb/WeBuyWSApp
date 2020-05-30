@@ -14,25 +14,16 @@ import javax.persistence.OneToOne;
 public class Admin implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long admin_id;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id", referencedColumnName = "user_id")
 	private User user;
 
-	/**
-	 * @return the admin_id
-	 */
-	public long getAdmin_id() {
+	public Long getAdmin_id() {
 		return admin_id;
 	}
 
-	/**
-	 * @param admin_id the admin_id to set
-	 */
-	public void setAdmin_id(long admin_id) {
-		this.admin_id = admin_id;
-	}
 
 	/**
 	 * @return the user

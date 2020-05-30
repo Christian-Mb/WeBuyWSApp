@@ -17,7 +17,7 @@ import javax.persistence.OneToOne;
 public class User implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long user_id;
 	private String username, mobileNumber, email, password, token,avatar;
 	private Timestamp createdAt;

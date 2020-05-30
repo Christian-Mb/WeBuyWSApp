@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 public class Deal_published implements Serializable {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long published_id;
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)

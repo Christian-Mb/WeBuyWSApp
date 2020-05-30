@@ -1,6 +1,6 @@
 package univ.tours.WeBuyWSApp.service;
 
-public interface initWebuy {
+public interface InitWebuy {
     public void initStore();
     public void initProduct();
     public void initDeal();

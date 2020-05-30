@@ -9,9 +9,9 @@ import javax.transaction.Transactional;
 
 @Service
 @Transactional
-public class initWebuyImpl implements initWebuy {
+public class InitWebuyImpl implements InitWebuy {
 
-    initDatas datas = new initDatas();
+    InitDatas datas = new InitDatas();
     @Autowired
     UserJPARepository userJPARepository;
     @Autowired
@@ -49,7 +49,9 @@ public class initWebuyImpl implements initWebuy {
 
     @Override
     public void initPurshaseGroup() {
-
+        for(PurshaseGroup d: datas.getGroupesList()){
+            purshaseGroupJPARepository.save(d);
+        }
     }
 
     @Override
