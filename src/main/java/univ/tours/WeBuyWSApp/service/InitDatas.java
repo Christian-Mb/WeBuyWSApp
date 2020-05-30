@@ -119,8 +119,8 @@ public class InitDatas {
         s6.setName("Darty");
         s6.setLogo("https://static-pepper.dealabs.com/merchants/avatar_web_square_94/avatar/2_3.jpg");
 
-        s6.setName("Auchan");
-        s6.setLogo("https://res.cloudinary.com/westfielddg/image/upload/westfield-media/fr/retailer/logos/xvotuvkhefu3tozayn8r.png");
+        s7.setName("Auchan");
+        s7.setLogo("https://res.cloudinary.com/westfielddg/image/upload/westfield-media/fr/retailer/logos/xvotuvkhefu3tozayn8r.png");
 
 
 
