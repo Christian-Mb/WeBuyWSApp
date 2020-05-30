@@ -39,6 +39,9 @@ public class User implements Serializable {
 	private Collection<Comment> comments;
 
 
+	public Long getUser_id() {
+		return user_id;
+	}
 
 	/**
 	 * @return the username

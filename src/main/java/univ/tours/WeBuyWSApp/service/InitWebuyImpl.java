@@ -75,4 +75,9 @@ public class InitWebuyImpl implements InitWebuy {
             adminJPARepository.save(a);
         }
     }
+
+    @Override
+    public void afficher() {
+        System.out.println(datas.getUsers().get(1));
+    }
 }

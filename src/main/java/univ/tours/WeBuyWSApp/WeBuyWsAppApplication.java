@@ -21,13 +21,13 @@ public class WeBuyWsAppApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		
+		initWebuy.afficher();
 		initWebuy.initStore();
 		initWebuy.initProduct();
 		initWebuy.initUser();
 		//initWebuy.initAdmin();
-		initWebuy.initDeal();
-		initWebuy.initPurshaseGroup();
+		//initWebuy.initDeal();
+		//initWebuy.initPurshaseGroup();
 		
 	}
 	

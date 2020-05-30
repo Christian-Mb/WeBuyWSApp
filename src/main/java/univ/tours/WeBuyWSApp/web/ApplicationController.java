@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import univ.tours.WeBuyWSApp.entity.Store;
 import univ.tours.WeBuyWSApp.entity.User;
+import univ.tours.WeBuyWSApp.service.AdminImplService;
 import univ.tours.WeBuyWSApp.service.StoreAddressImplService;
 import univ.tours.WeBuyWSApp.service.StoreImplService;
 import univ.tours.WeBuyWSApp.service.UserAdminImplService;
@@ -26,6 +27,9 @@ public class ApplicationController {
 
 	@Autowired
 	private StoreAddressImplService StoreAddressService;
+
+	@Autowired
+	private AdminImplService AdminService;
 
 	@RequestMapping("/login")
 	public String login() {
@@ -97,6 +101,14 @@ public class ApplicationController {
 		return "UserPage";
 	}
 
+	@RequestMapping("/retrograde-admin")
+	public String retrogradeAdmin(@RequestParam int id, HttpServletRequest request){
+		AdminService.retrogradeAdmin(id);
+		request.setAttribute("users", UserAdminService.findAllAdmin());
+		request.setAttribute("mode", "allAdmins");
+		return "UserPage";
+
+	}
 	@RequestMapping("delete-store")
 	public String deleteStore(@RequestParam int id, HttpServletRequest request){
 		StoreService.delete(id);
@@ -115,10 +127,17 @@ public class ApplicationController {
 
 	@RequestMapping("/StoreAddress")
 	public String storeAddress(@RequestParam int id, HttpServletRequest request){
-		request.setAttribute("allStoreAddress", StoreAddressService.storeAddress(id));
-		request.setAttribute("magazin", StoreAddressService.storeAddress(id).get(0).getStore().getName());
-		request.setAttribute("mode", "allStoreAddress");
-		return "UserPage";
+		try{
+			request.setAttribute("allStoreAddress", StoreAddressService.storeAddress(id));
+			request.setAttribute("magazin", StoreAddressService.storeAddress(id).get(0).getStore().getName());
+			request.setAttribute("mode", "allStoreAddress");
+			return "UserPage";
+		} catch (IndexOutOfBoundsException e){
+			request.setAttribute("magazin", StoreService.getById(id));
+			request.setAttribute("mode", "allStoreAddress");
+			return "UserPage";
+		}
+
 	}
 
 	@RequestMapping("/delete-storeAddress")
