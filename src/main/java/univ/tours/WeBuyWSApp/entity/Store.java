@@ -1,5 +1,8 @@
 package univ.tours.WeBuyWSApp.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.io.Serializable;
 import java.util.Collection;
 
@@ -9,11 +12,12 @@ import javax.persistence.*;
 public class Store implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long store_id;
 	private String name, logo;
 	
 	@OneToOne(mappedBy = "store")
+	@JsonManagedReference
 	private StoreAddress address;
 	@OneToMany(mappedBy = "store", fetch = FetchType.LAZY)
 	private Collection<Deal> deals;

@@ -1,5 +1,8 @@
 package univ.tours.WeBuyWSApp.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.io.Serializable;
 
 import javax.persistence.*;
@@ -8,13 +11,14 @@ import javax.persistence.*;
 public class StoreAddress implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long address_id;
 	private double Longitude, latitude;
 	private String department;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name="store_id", referencedColumnName = "store_id")
+	@JsonBackReference
 	private Store store;
 
 	/**

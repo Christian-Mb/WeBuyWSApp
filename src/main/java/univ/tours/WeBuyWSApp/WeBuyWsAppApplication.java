@@ -23,6 +23,7 @@ public class WeBuyWsAppApplication implements CommandLineRunner {
 		// TODO Auto-generated method stub
 		
 		initWebuy.initStore();
+		initWebuy.initAddress();
 		initWebuy.initProduct();
 		initWebuy.initUser();
 		initWebuy.initAdmin();

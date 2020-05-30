@@ -32,9 +32,7 @@ public class InitWebuyImpl implements InitWebuy {
         for(Store store: datas.getMagasinsList()){
             storeJPARepository.save(store);
         }
-        for (StoreAddress s: datas.getAllStoreAddress()){
-            storeAddressJPARepository.save(s);
-        }
+
     }
 
     @Override
@@ -56,6 +54,13 @@ public class InitWebuyImpl implements InitWebuy {
     public void initPurshaseGroup() {
         for(PurshaseGroup d: datas.getGroupesList()){
             purshaseGroupJPARepository.save(d);
+        }
+    }
+
+    @Override
+    public void initAddress() {
+        for (StoreAddress s: datas.getAllStoreAddress()){
+            storeAddressJPARepository.save(s);
         }
     }
 
