@@ -29,4 +29,11 @@ public class DealImplService implements IDealService{
     public Deal getById(int id) {
        return dealRepo.getById(id);
     }
+
+    @Override
+    public void save(Deal deal) {
+        dealRepo.save(deal);
+    }
+
+
 }

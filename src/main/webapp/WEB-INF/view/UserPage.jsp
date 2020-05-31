@@ -267,19 +267,8 @@
 				<div class="container text-center">
 					<h3>Modifier le deal ${deal.deal_id} (NON FONCTIONNEL)</h3>
 					<hr>
-					<form class="form-horizontal" method="POST" action="modifyDeal">
-						<div class="form-group">
-							<label class="control-label col-md-3">Creer le</label>
-							<div >
-								<input type="datetime-local" id="created"name="create" value="${deal.createdAt }"/>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-md-3">Fini le </label>
-							<div>
-								<input type="datetime-local" name="end" value="${deal.endedAt }"/>
-							</div>
-						</div>
+					<form class="form-horizontal" method="POST" action="modify">
+
 						<div class="form-group">
 							<label class="control-label col-md-3">price hors promo </label>
 							<div>
@@ -304,12 +293,7 @@
 								<input type="number" name="quantityBuy" value="${deal.quantity_to_buy }"/>
 							</div>
 						</div>
-						<div class="form-group">
-							<label class="control-label col-md-3">Commence le </label>
-							<div>
-								<input type="date" name="started" value="${deal.startedAt }"/>
-							</div>
-						</div>
+
 						<div class="form-group">
 							<input type="submit" class="btn btn-primary" value="Modifier"/>
 						</div>

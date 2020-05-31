@@ -9,4 +9,6 @@ public interface IDealService {
     public List<Deal> getAllDeals();
     public void delete(int id);
     public Deal getById(int id);
+    public void save(Deal deal);
+
 }

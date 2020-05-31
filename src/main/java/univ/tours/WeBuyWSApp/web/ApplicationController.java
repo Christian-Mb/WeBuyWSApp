@@ -8,6 +8,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import univ.tours.WeBuyWSApp.entity.Deal;
 import univ.tours.WeBuyWSApp.entity.Store;
 import univ.tours.WeBuyWSApp.entity.User;
 import univ.tours.WeBuyWSApp.service.*;
@@ -179,4 +180,13 @@ public class ApplicationController {
 		request.setAttribute("mode", "dealform");
 		return "UserPage";
 	}
+
+	@RequestMapping("/modify")
+	public String modify(@ModelAttribute Deal deal, BindingResult bindingResult, HttpServletRequest request, ModelMap model){
+		DealService.save(deal);
+		request.setAttribute("allDeals", DealService.getAllDeals());
+		request.setAttribute("mode", "AllDeals");
+		return "UserPage";
+	}
+
 }
