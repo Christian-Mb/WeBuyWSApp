@@ -29,6 +29,7 @@ public class WeBuyWsAppApplication implements CommandLineRunner {
 		initWebuy.initAdmin();
 		initWebuy.initDeal();
 		initWebuy.initPurshaseGroup();
+
 		
 	}
 	

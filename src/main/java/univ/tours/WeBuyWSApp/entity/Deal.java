@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -34,8 +35,10 @@ public class Deal implements Serializable {
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private Store store;
 
-	@OneToOne(mappedBy = "deal")
-	private Deal_published deal_published;
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "user_id")
+	@JsonProperty(access=Access.WRITE_ONLY)
+	private User user;
 
 	@OneToMany(mappedBy = "deal", fetch = FetchType.LAZY)
 	private Collection<PurshaseGroup> purshaseGroup;
@@ -175,19 +178,6 @@ public class Deal implements Serializable {
 		this.store = store;
 	}
 
-	/**
-	 * @return the deal_published
-	 */
-	public Deal_published getDeal_published() {
-		return deal_published;
-	}
-
-	/**
-	 * @param deal_published the deal_published to set
-	 */
-	public void setDeal_published(Deal_published deal_published) {
-		this.deal_published = deal_published;
-	}
 
 	/**
 	 * @return the purshaseGroup
@@ -253,4 +243,13 @@ public class Deal implements Serializable {
 	public void setUserDislike(long userDislike) {
 		this.userDislike = userDislike;
 	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 }

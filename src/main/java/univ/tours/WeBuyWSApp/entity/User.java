@@ -27,7 +27,7 @@ public class User implements Serializable {
 	private Admin admin;
 
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-	private Collection<Deal_published> deals_published;
+	private Collection<Deal> deals_published;
 
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	private Collection<ParticipateToPurshase> participateToPurhases;
@@ -140,20 +140,6 @@ public class User implements Serializable {
 	}
 
 	/**
-	 * @return the deals_published
-	 */
-	public Collection<Deal_published> getDeals_published() {
-		return deals_published;
-	}
-
-	/**
-	 * @param deals_published the deals_published to set
-	 */
-	public void setDeals_published(Collection<Deal_published> deals_published) {
-		this.deals_published = deals_published;
-	}
-
-	/**
 	 * @return the participatePurhases
 	 */
 	public Collection<ParticipateToPurshase> getParticipatePurhases() {
@@ -223,5 +209,9 @@ public class User implements Serializable {
 
 	public Long getUser_id() {
 		return user_id;
+	}
+
+	public void setDeals_published(Collection<Deal> deals_published) {
+		this.deals_published = deals_published;
 	}
 }

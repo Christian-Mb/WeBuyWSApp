@@ -37,7 +37,7 @@ public class InitWebuyImpl implements InitWebuy {
 
     @Override
     public void initProduct() {
-        for(Product p: datas.getProduitsList()){
+        for(Product p: datas.getProductsList()){
             productJPARepository.save(p);
         }
 
@@ -45,14 +45,14 @@ public class InitWebuyImpl implements InitWebuy {
 
     @Override
     public void initDeal() {
-        for(Deal d: datas.getPromotionsList()){
+        for(Deal d: datas.getDealsList()){
             dealJPARepository.save(d);
         }
     }
 
     @Override
     public void initPurshaseGroup() {
-        for(PurshaseGroup d: datas.getGroupesList()){
+        for(PurshaseGroup d: datas.getGroupsList()){
             purshaseGroupJPARepository.save(d);
         }
     }
@@ -76,6 +76,7 @@ public class InitWebuyImpl implements InitWebuy {
         }
 
     }
+
 
     @Override
     public void initAdmin() {

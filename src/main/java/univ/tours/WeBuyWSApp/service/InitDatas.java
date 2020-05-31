@@ -13,7 +13,7 @@ public class InitDatas {
     ArrayList<PurshaseGroup> groupes = new ArrayList<>();
     ArrayList<User> users = new ArrayList<>();
     ArrayList<StoreAddress> storeAddresses = new ArrayList<>();
-
+    ArrayList<ParticipateToPurshase> participateToPurshases = new ArrayList<>();
     //User
     User u1 = new User();
     User u2 = new User();
@@ -22,6 +22,19 @@ public class InitDatas {
     User u5 = new User();
     User u6 = new User();
     User u7 = new User();
+
+    //ParticipateToPurshaseGroup
+    ParticipateToPurshase pt1 = new ParticipateToPurshase();
+    ParticipateToPurshase pt2 = new ParticipateToPurshase();
+    ParticipateToPurshase pt3 = new ParticipateToPurshase();
+    ParticipateToPurshase pt4 = new ParticipateToPurshase();
+    ParticipateToPurshase pt5 = new ParticipateToPurshase();
+    ParticipateToPurshase pt6 = new ParticipateToPurshase();
+    ParticipateToPurshase pt7 = new ParticipateToPurshase();
+    ParticipateToPurshase pt8 = new ParticipateToPurshase();
+
+
+
 
     //Address
     StoreAddress a1 = new StoreAddress();
@@ -53,6 +66,32 @@ public class InitDatas {
     Product p5 = new Product();
     Product p6 = new Product();
     Product p7 = new Product();
+    Product p8 = new Product();
+    Product p9 = new Product();
+    Product p10 = new Product();
+    Product p11 = new Product();
+    Product p12 = new Product();
+    Product p13= new Product();
+    Product p14= new Product();
+    Product p15= new Product();
+    Product p16= new Product();
+    Product p17 = new Product();
+    Product p18= new Product();
+    Product p19= new Product();
+    Product p20= new Product();
+    Product p21= new Product();
+    Product p22= new Product();
+    Product p23= new Product();
+    Product p24= new Product();
+    Product p25= new Product();
+    Product p26= new Product();
+    Product p27 = new Product();
+    Product p28 = new Product();
+    Product p29 = new Product();
+    Product p30 = new Product();
+    Product p31 = new Product();
+    Product p32 = new Product();
+    Product p35 = new Product();
 
 
     // Deals
@@ -75,6 +114,23 @@ public class InitDatas {
     Deal pr16= new Deal();
     Deal pr17= new Deal();
     Deal pr18= new Deal();
+    Deal pr19= new Deal();
+    Deal pr20= new Deal();
+    Deal pr21= new Deal();
+    Deal pr22= new Deal();
+    Deal pr23= new Deal();
+    Deal pr24= new Deal();
+    Deal pr25= new Deal();
+    Deal pr26= new Deal();
+    Deal pr27= new Deal();
+    Deal pr28= new Deal();
+    Deal pr29= new Deal();
+    Deal pr30= new Deal();
+    Deal pr31= new Deal();
+    Deal pr32= new Deal();
+    Deal pr33= new Deal();
+    Deal pr34= new Deal();
+    Deal pr35= new Deal();
 
     // Groups
 
@@ -135,9 +191,10 @@ public class InitDatas {
         stores.add(s7);
 
         return stores;
+
     }
 
-    protected ArrayList<Deal> getPromotionsList() {
+    protected ArrayList<Deal> getDealsList() {
         //String nom, String description, float prixAvecPromo, int quantiteMin, int quantiteMax, int stock, String duree,
         //Produit produit, Magasin magasin
         pr1.setUserLike(200);
@@ -151,6 +208,7 @@ public class InitDatas {
         pr1.setQuantity_to_buy(4);
         pr1.setStartedAt(new Timestamp(System.currentTimeMillis()));
         pr1.setStore(s1);
+        pr1.setUser(u1);
 
         pr2.setUserLike(200);
         pr2.setCreatedAt(new Timestamp(System.currentTimeMillis()));
@@ -163,6 +221,7 @@ public class InitDatas {
         pr2.setQuantity_to_buy(4);
         pr2.setStartedAt(new Timestamp(System.currentTimeMillis()));
         pr2.setStore(s2);
+        pr2.setUser(u2);
 
         pr3.setUserLike(200);
         pr3.setCreatedAt(new Timestamp(System.currentTimeMillis()));
@@ -175,6 +234,7 @@ public class InitDatas {
         pr3.setQuantity_to_buy(4);
         pr3.setStartedAt(new Timestamp(System.currentTimeMillis()));
         pr3.setStore(s3);
+        pr3.setUser(u1);
 
         pr4.setUserLike(200);
         pr4.setCreatedAt(new Timestamp(System.currentTimeMillis()));
@@ -187,6 +247,7 @@ public class InitDatas {
         pr4.setQuantity_to_buy(4);
         pr4.setStartedAt(new Timestamp(System.currentTimeMillis()));
         pr4.setStore(s4);
+        pr4.setUser(u2);
 
         pr5.setUserLike(200);
         pr5.setCreatedAt(new Timestamp(System.currentTimeMillis()));
@@ -199,6 +260,7 @@ public class InitDatas {
         pr5.setQuantity_to_buy(8);
         pr5.setStartedAt(new Timestamp(System.currentTimeMillis()));
         pr5.setStore(s5);
+        pr5.setUser(u3);
 
         pr6.setUserLike(400);
         pr6.setCreatedAt(new Timestamp(System.currentTimeMillis()));
@@ -209,8 +271,8 @@ public class InitDatas {
         pr6.setProduct(p6);
         pr6.setQuantity_available(200);
         pr6.setQuantity_to_buy(3);
-        pr6.setStartedAt(new Timestamp(System.currentTimeMillis()));
         pr6.setStore(s6);
+        pr6.setUser(u1);
 
         pr7.setUserLike(400);
         pr7.setCreatedAt(new Timestamp(System.currentTimeMillis()));
@@ -223,6 +285,7 @@ public class InitDatas {
         pr7.setQuantity_to_buy(6);
         pr7.setStartedAt(new Timestamp(System.currentTimeMillis()));
         pr7.setStore(s7);
+        pr1.setUser(u3);
 
 
 
@@ -239,7 +302,7 @@ public class InitDatas {
         return deal;
     }
 
-    protected ArrayList<Product> getProduitsList() {
+    protected ArrayList<Product> getProductsList() {
         p1.setImage("https://static-pepper.dealabs.com/threads/thread_large/default/1896032_2.jpg");
         p1.setLabel("Ketchup Heinz 900g");
         p1.setContent("Je suis dans la joie, une joie immense");
@@ -280,7 +343,7 @@ public class InitDatas {
         return produt;
     }
 
-    protected ArrayList<PurshaseGroup> getGroupesList() {
+    protected ArrayList<PurshaseGroup> getGroupsList() {
 
         g1.setCreatedAt(new Timestamp(System.currentTimeMillis()));
         g1.setArticle_quantity(5);
@@ -420,5 +483,7 @@ public class InitDatas {
 
        return storeAddresses;
     }
+
+
 
 }
