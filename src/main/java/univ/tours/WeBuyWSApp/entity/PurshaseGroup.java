@@ -162,4 +162,8 @@ public class PurshaseGroup implements Serializable {
 	public void setNbrs_users_wanted(int nbrs_users_wanted) {
 		this.nbrs_users_wanted = nbrs_users_wanted;
 	}
+
+	public Long getGroupe_id() {
+		return groupe_id;
+	}
 }

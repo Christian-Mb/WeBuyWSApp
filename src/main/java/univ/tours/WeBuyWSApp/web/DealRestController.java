@@ -29,8 +29,6 @@ public class DealRestController {
     @PostMapping("/add")
     @ResponseStatus(value = HttpStatus.CREATED)
     public void addDeal(@RequestBody Deal deal){
-        //Long id = dealRepo.getLastId();
-        //deal.setDeal_id(id+1);
         dealRepo.save(deal);
     }
 }

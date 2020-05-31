@@ -1,5 +1,7 @@
 package univ.tours.WeBuyWSApp.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.io.Serializable;
 import java.util.Collection;
 
@@ -19,6 +21,7 @@ public class Product implements Serializable {
 	private String label, content, image;
 
 	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+	@JsonBackReference
 	private Collection<Deal> deals;
 
 

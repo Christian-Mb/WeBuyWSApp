@@ -32,7 +32,8 @@ public class Deal implements Serializable {
 
 	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "store_id")
-	@JsonProperty(access = Access.WRITE_ONLY)
+	@JsonManagedReference
+	@JsonProperty(access = Access.READ_WRITE)
 	private Store store;
 
 	@ManyToOne(cascade = CascadeType.MERGE)
@@ -45,7 +46,8 @@ public class Deal implements Serializable {
 
 	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "product_id")
-	@JsonProperty(access = Access.WRITE_ONLY)
+	@JsonManagedReference
+	@JsonProperty(access = Access.READ_WRITE)
 	private Product product;
 
 	@OneToMany(mappedBy = "deal", fetch = FetchType.LAZY)

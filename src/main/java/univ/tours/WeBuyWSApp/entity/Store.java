@@ -20,6 +20,7 @@ public class Store implements Serializable {
 	@JsonManagedReference
 	private StoreAddress address;
 	@OneToMany(mappedBy = "store", fetch = FetchType.LAZY)
+	@JsonBackReference
 	private Collection<Deal> deals;
 
 	public Long getStore_id() {
