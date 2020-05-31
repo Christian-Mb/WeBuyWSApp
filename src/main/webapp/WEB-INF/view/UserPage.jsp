@@ -34,9 +34,12 @@
 		      <li class="nav-item">
 		        <a class="nav-link" href="/Users">Utilisateurs</a>
 		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="/Stores">Magazins</a>
-		      </li>
+				<li class="nav-item">
+					<a class="nav-link" href="/Stores">Magazins</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/Deals">Deals</a>
+				</li>
 		    </ul>
 		  </div>
 		</nav>
@@ -214,8 +217,106 @@
 					</table>
 				</div>
 			</c:when>
-		</c:choose>
+			<c:when test="${mode == 'AllDeals'}">
+				<div class="container text-center" id="tasksDiv">
+					<br>
+					<button type="button" class="btn btn-primary" style="float: left;font-size: 16px;left:50px;position: relative">Modifier</button>
+					<h3>Tous les deals</h3>
+					<hr>
+					<table id="table" class="table table-striped table-bordered">
+						<thead>
+						<tr>
+							<th>Id</th>
+							<th>Posté le</th>
+							<th>Fini le</th>
+							<th>Prix (hors promo)</th>
+							<th>Prix (promo)</th>
+							<th>Quantitee disponible</th>
+							<th>Quantitee à acheté</th>
+							<th>Commence le</th>
+							<th>J'aime pas</th>
+							<th>J'aime</th>
+							<th>Modifier</th>
+							<th>Supprimer</th>
+						</tr>
+						</thead>
+						<tbody>
+						<c:forEach var="deal" items="${allDeals }">
+							<tr>
+								<td>${deal.getDeal_id()}</td>
+								<td>${deal.createdAt}</td>
+								<td>${deal.endedAt}</td>
+								<td>${deal.price}</td>
+								<td>${deal.price_pomo}</td>
+								<td>${deal.quantity_available}</td>
+								<td>${deal.quantity_to_buy}</td>
+								<td>${deal.startedAt}</td>
+								<td>${deal.userDislike}</td>
+								<td>${deal.userLike}</td>
+								<td><a href="/modifyDeal?id=${deal.getDeal_id()}">modifier</a></td>
+								<td><a href="/delete-deal?id=${deal.getDeal_id()}"><span
+										class="glyphicon glyphicon-trash"></span></a></td>
+							</tr>
+						</c:forEach>
+						</tbody>
+					</table>
+				</div>
 
+			</c:when>
+			<c:when test="${mode == 'dealform'}">
+				<div class="container text-center">
+					<h3>Modifier le deal ${deal.deal_id} (NON FONCTIONNEL)</h3>
+					<hr>
+					<form class="form-horizontal" method="POST" action="modifyDeal">
+						<div class="form-group">
+							<label class="control-label col-md-3">Creer le</label>
+							<div >
+								<input type="datetime-local" id="created"name="create" value="${deal.createdAt }"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3">Fini le </label>
+							<div>
+								<input type="datetime-local" name="end" value="${deal.endedAt }"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3">price hors promo </label>
+							<div>
+								<input type="number" name="priceHP" step="0.01" value="${deal.price }"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3">prix promo </label>
+							<div>
+								<input type="number" name="priceP" value="${deal.price_pomo }"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3">Quantite disponible </label>
+							<div>
+								<input type="number" name="quantityAvailable" value="${deal.quantity_available }"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3">Quantite a achete </label>
+							<div>
+								<input type="number" name="quantityBuy" value="${deal.quantity_to_buy }"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3">Commence le </label>
+							<div>
+								<input type="date" name="started" value="${deal.startedAt }"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<input type="submit" class="btn btn-primary" value="Modifier"/>
+						</div>
+					</form>
+				</div>
+			</c:when>
+		</c:choose>
 	</body>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -228,6 +329,8 @@
 		$(document).ready(function() {
 		    $('#table').DataTable();
 		} );
+		
 	</script>
-	
+
+
 </html>

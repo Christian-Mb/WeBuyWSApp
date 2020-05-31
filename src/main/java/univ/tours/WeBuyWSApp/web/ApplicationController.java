@@ -10,10 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import univ.tours.WeBuyWSApp.entity.Store;
 import univ.tours.WeBuyWSApp.entity.User;
-import univ.tours.WeBuyWSApp.service.AdminImplService;
-import univ.tours.WeBuyWSApp.service.StoreAddressImplService;
-import univ.tours.WeBuyWSApp.service.StoreImplService;
-import univ.tours.WeBuyWSApp.service.UserAdminImplService;
+import univ.tours.WeBuyWSApp.service.*;
 
 
 @Controller
@@ -30,6 +27,9 @@ public class ApplicationController {
 
 	@Autowired
 	private AdminImplService AdminService;
+
+	@Autowired
+	private DealImplService DealService;
 
 	@RequestMapping("/login")
 	public String login() {
@@ -154,6 +154,29 @@ public class ApplicationController {
 		request.setAttribute("stores", StoreService.findAllStore());
 		request.setAttribute("mode", "allStores");
 		request.setAttribute("form", "MagazinForm");
+		return "UserPage";
+	}
+
+	@GetMapping("/Deals")
+	public String showAllDeals(HttpServletRequest request){
+		request.setAttribute("allDeals", DealService.getAllDeals());
+		request.setAttribute("mode", "AllDeals");
+		return "UserPage";
+	}
+
+	@RequestMapping("delete-deal")
+	public String deleteDeal(@RequestParam int id, HttpServletRequest request){
+		DealService.delete(id);
+		request.setAttribute("allDeals", DealService.getAllDeals());
+		request.setAttribute("mode", "AllDeals");
+		return "UserPage";
+	}
+
+	@GetMapping("/modifyDeal")
+	public String modifyDeal(@RequestParam int id, HttpServletRequest request){
+		request.setAttribute("deal", DealService.getById(id));
+		System.out.println(DealService.getById(id).getCreatedAt());
+		request.setAttribute("mode", "dealform");
 		return "UserPage";
 	}
 }

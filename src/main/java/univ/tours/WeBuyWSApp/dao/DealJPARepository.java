@@ -1,6 +1,7 @@
 package univ.tours.WeBuyWSApp.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
@@ -19,4 +20,11 @@ public interface DealJPARepository extends JpaRepository<Deal, Integer> {
 
     @Query(value = "SELECT MAX(deal_id) FROM deal", nativeQuery = true)
     public Long getLastId();
+
+    @Modifying
+    @Query(value = "DELETE FROM deal WHERE deal_id = ?1", nativeQuery = true)
+    public void delete(int id);
+
+    @Query(value = "SELECT * FROM deal WHERE deal_id = ?1", nativeQuery = true)
+    public Deal getById(int id);
 }
