@@ -37,7 +37,7 @@ public class Deal implements Serializable {
 
 	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "user_id")
-	@JsonProperty(access=Access.WRITE_ONLY)
+	@JsonProperty(access=Access.READ_WRITE)
 	private User user;
 
 	@OneToMany(mappedBy = "deal", fetch = FetchType.LAZY)

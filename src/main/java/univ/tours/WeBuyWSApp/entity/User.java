@@ -1,5 +1,7 @@
 package univ.tours.WeBuyWSApp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ public class User implements Serializable {
 
 
 	@OneToOne(mappedBy = "user")
+	@JsonIgnore
 	private Admin admin;
 
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
@@ -65,6 +68,7 @@ public class User implements Serializable {
 	/**
 	 * @param mobileNumber the mobileNumber to set
 	 */
+	@JsonIgnore
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
@@ -72,6 +76,7 @@ public class User implements Serializable {
 	/**
 	 * @return the email
 	 */
+	@JsonIgnore
 	public String getEmail() {
 		return email;
 	}
@@ -86,6 +91,7 @@ public class User implements Serializable {
 	/**
 	 * @return the password
 	 */
+	@JsonIgnore
 	public String getPassword() {
 		return password;
 	}
@@ -100,6 +106,7 @@ public class User implements Serializable {
 	/**
 	 * @return the token
 	 */
+	@JsonIgnore
 	public String getToken() {
 		return token;
 	}
@@ -114,6 +121,7 @@ public class User implements Serializable {
 	/**
 	 * @return the createdAt
 	 */
+	@JsonIgnore
 	public Timestamp getCreatedAt() {
 		return createdAt;
 	}
@@ -142,6 +150,7 @@ public class User implements Serializable {
 	/**
 	 * @return the participatePurhases
 	 */
+	@JsonIgnore
 	public Collection<ParticipateToPurshase> getParticipatePurhases() {
 		return participateToPurhases;
 	}
@@ -156,6 +165,7 @@ public class User implements Serializable {
 	/**
 	 * @return the purshaseGroups
 	 */
+	@JsonIgnore
 	public Collection<PurshaseGroup> getPurshaseGroups() {
 		return purshaseGroups;
 	}
@@ -170,6 +180,7 @@ public class User implements Serializable {
 	/**
 	 * @return the participateToPurhases
 	 */
+	@JsonIgnore
 	public Collection<ParticipateToPurshase> getParticipateToPurhases() {
 		return participateToPurhases;
 	}
@@ -184,6 +195,7 @@ public class User implements Serializable {
 	/**
 	 * @return the comments
 	 */
+	@JsonIgnore
 	public Collection<Comment> getComments() {
 		return comments;
 	}
@@ -198,7 +210,7 @@ public class User implements Serializable {
 	public void setUser_id(Long user_id) {
 		this.user_id = user_id;
 	}
-
+	@JsonIgnore
 	public String getAvatar() {
 		return avatar;
 	}
@@ -206,7 +218,7 @@ public class User implements Serializable {
 	public void setAvatar(String avatar) {
 		this.avatar = avatar;
 	}
-
+	@JsonIgnore
 	public Long getUser_id() {
 		return user_id;
 	}
