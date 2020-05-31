@@ -220,7 +220,7 @@ public class InitDatas {
         pr2.setQuantity_available(1000);
         pr2.setQuantity_to_buy(4);
         pr2.setStartedAt(new Timestamp(System.currentTimeMillis()));
-        pr2.setStore(s2);
+        pr2.setStore(s1);
         pr2.setUser(u2);
 
         pr3.setUserLike(200);
@@ -285,7 +285,7 @@ public class InitDatas {
         pr7.setQuantity_to_buy(6);
         pr7.setStartedAt(new Timestamp(System.currentTimeMillis()));
         pr7.setStore(s7);
-        pr1.setUser(u3);
+        pr7.setUser(u3);
 
 
 
