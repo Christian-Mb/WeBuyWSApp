@@ -190,7 +190,7 @@
 				<div class="container text-center" id="tasksDiv">
 					<br>
 					<button type="button" class="btn btn-primary" style="float: left;font-size: 16px;left:50px;position: relative">Ajouter</button>
-					<h3>Addresses de ${magazin.name}</h3>
+					<h3>Addresses de ${store.name}</h3>
 					<hr>
 					<table id="table" class="table table-striped table-bordered">
 						<thead>
